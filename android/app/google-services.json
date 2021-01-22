@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "449150167275",
+    "project_id": "mycity-n7s",
+    "storage_bucket": "mycity-n7s.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449150167275:android:44515972a8756b310f76ae",
+        "android_client_info": {
+          "package_name": "com.mycity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449150167275-453n90racrotngn9hk9nu3tt7bpk9j35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycity",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "449150167275-n0stlelrifs5fv80lpjfbkr8lvpk8llf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEUtOBQNpEMlOFH7bbo5sE0xmQxx8V1Fo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449150167275-n0stlelrifs5fv80lpjfbkr8lvpk8llf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
