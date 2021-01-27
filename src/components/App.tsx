@@ -10,6 +10,8 @@ import Logger from 'redux-logger';
 import Thunk from 'redux-thunk';
 
 import {rootReducer, RootState, RootActions} from 'src/redux';
+import RedirectGate from 'src/components/login/RedirectGate';
+import Login from 'src/components/login';
 
 const persistConfig = {
   key: 'mycity',
@@ -40,8 +42,10 @@ const App = () => {
           <SafeAreaView style={{flex: 1}}>
             <Router>
               <View style={{flex: 1}}>
+                <Route path="/" component={RedirectGate} />
                 <Switch>
                   <Route exact path="/" render={helloWorld} />
+                  <Route exact path="/login" component={Login} />
                 </Switch>
               </View>
             </Router>
