@@ -12,6 +12,7 @@ import Thunk from 'redux-thunk';
 import {rootReducer, RootState, RootActions} from 'src/redux';
 import RedirectGate from 'src/components/login/RedirectGate';
 import Login from 'src/components/login';
+import PlacesList from 'src/components/places/list';
 
 const persistConfig = {
   key: 'mycity',
@@ -26,14 +27,6 @@ const persistor = persistStore(store as any);
 
 declare const global: {HermesInternal: null | {}};
 
-const helloWorld = () => {
-  return (
-    <View>
-      <Text>Hello World :D</Text>
-    </View>
-  );
-};
-
 const App = () => {
   return (
     <View style={{flexGrow: 1}}>
@@ -44,7 +37,7 @@ const App = () => {
               <View style={{flex: 1}}>
                 <Route path="/" component={RedirectGate} />
                 <Switch>
-                  <Route exact path="/" render={helloWorld} />
+                  <Route exact path="/" component={PlacesList} />
                   <Route exact path="/login" component={Login} />
                 </Switch>
               </View>
