@@ -4,7 +4,7 @@ import {bindActionCreators, Dispatch} from 'redux';
 import {connect, ConnectedProps} from 'react-redux';
 import {RootState} from 'src/redux';
 
-export class Login extends Component<Props> {
+export class List extends Component<Props> {
   private resultSet: Element[] = [];
 
   constructor(props: Props) {
@@ -44,7 +44,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type Props = ConnectedProps<typeof connector>;
 
-export default connector(Login);
+export default connector(List);
 
 const response = {
   html_attributions: [],

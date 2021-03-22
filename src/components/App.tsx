@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
-import {NativeRouter as Router, Switch, Route} from 'react-router-native';
 import {createStore, applyMiddleware} from 'redux';
+import {NativeRouter as Router, Switch, Route} from 'react-router-native';
 import {persistStore, persistReducer} from 'redux-persist';
 import {PersistGate} from 'redux-persist/integration/react';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -13,6 +13,7 @@ import {rootReducer, RootState, RootActions} from 'src/redux';
 import RedirectGate from 'src/components/login/RedirectGate';
 import Login from 'src/components/login';
 import PlacesList from 'src/components/places/list';
+import PlacesSearch from 'src/components/places/search';
 
 const persistConfig = {
   key: 'mycity',
@@ -37,7 +38,7 @@ const App = () => {
               <View style={{flex: 1}}>
                 <Route path="/" component={RedirectGate} />
                 <Switch>
-                  <Route exact path="/" component={PlacesList} />
+                  <Route exact path="/" component={PlacesSearch} />
                   <Route exact path="/login" component={Login} />
                 </Switch>
               </View>
