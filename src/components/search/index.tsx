@@ -4,6 +4,8 @@ import {bindActionCreators, Dispatch} from 'redux';
 import {connect, ConnectedProps} from 'react-redux';
 import {RootState} from 'src/redux';
 
+import {getSearchResults} from 'src/redux/places';
+
 interface State {
   searchText: string;
 }
@@ -23,11 +25,19 @@ export class Search extends Component<Props, State> {
     if (this.timer) {
       clearTimeout(this.timer);
     }
-    this.timer = setTimeout(this.search, 1000);
+    this.timer = setTimeout(this.search, 2000);
   };
 
   search = () => {
-    console.log('Im an API');
+    const {searchText} = this.state;
+    this.props.getSearchResults(searchText);
+  };
+
+  onSubmitEditing = () => {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.search();
   };
 
   onChangeText = (value: string) => {
@@ -39,21 +49,27 @@ export class Search extends Component<Props, State> {
 
   render() {
     const {searchText} = this.state;
+
     return (
       <View>
         <Text>Look stuff up!</Text>
-        <TextInput value={searchText} onChangeText={this.onChangeText} />
-        <Text>{searchText}</Text>
+        <TextInput
+          value={searchText}
+          onChangeText={this.onChangeText}
+          onSubmitEditing={this.onSubmitEditing}
+        />
       </View>
     );
   }
 }
 
 function mapStateToProps(state: RootState) {
-  return {};
+  return {
+    results: state.places.searchResults,
+  };
 }
 function mapDispatchToProps(dispatch: Dispatch) {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({getSearchResults}, dispatch);
 }
 const connector = connect(mapStateToProps, mapDispatchToProps);
 

@@ -12,8 +12,7 @@ import Thunk from 'redux-thunk';
 import {rootReducer, RootState, RootActions} from 'src/redux';
 import RedirectGate from 'src/components/login/RedirectGate';
 import Login from 'src/components/login';
-import PlacesList from 'src/components/places/list';
-import PlacesSearch from 'src/components/places/search';
+import Map from 'src/components/map';
 
 const persistConfig = {
   key: 'mycity',
@@ -38,7 +37,7 @@ const App = () => {
               <View style={{flex: 1}}>
                 <Route path="/" component={RedirectGate} />
                 <Switch>
-                  <Route exact path="/" component={PlacesSearch} />
+                  <Route exact path="/" component={Map} />
                   <Route exact path="/login" component={Login} />
                 </Switch>
               </View>
