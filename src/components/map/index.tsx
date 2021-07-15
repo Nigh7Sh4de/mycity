@@ -36,6 +36,7 @@ export class Map extends Component<Props> {
         <RNMaps
           provider={PROVIDER_GOOGLE}
           style={StyleSheet.absoluteFillObject}
+          showsPointsOfInterest={false}
           initialRegion={{
             latitude: LATITUDE,
             longitude: LONGITUDE,
