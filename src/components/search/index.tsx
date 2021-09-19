@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput} from 'react-native';
+import {StyleSheet, View, TextInput} from 'react-native';
 import {bindActionCreators, Dispatch} from 'redux';
 import {connect, ConnectedProps} from 'react-redux';
 import {RootState} from 'src/redux';
@@ -51,8 +51,7 @@ export class Search extends Component<Props, State> {
     const {searchText} = this.state;
 
     return (
-      <View>
-        <Text>Look stuff up!</Text>
+      <View style={styles.container}>
         <TextInput
           value={searchText}
           onChangeText={this.onChangeText}
@@ -76,3 +75,14 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type Props = ConnectedProps<typeof connector>;
 
 export default connector(Search);
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flex: 1,
+    borderRadius: 8,
+    backgroundColor: '#fffa',
+    borderColor: '#ccc',
+    borderWidth: 2,
+  },
+});

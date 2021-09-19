@@ -32,10 +32,10 @@ export class Map extends Component<Props> {
     ));
 
     return (
-      <View style={StyleSheet.absoluteFillObject}>
+      <View style={StyleSheet.absoluteFill}>
         <RNMaps
           provider={PROVIDER_GOOGLE}
-          style={StyleSheet.absoluteFillObject}
+          style={StyleSheet.absoluteFill}
           showsPointsOfInterest={false}
           initialRegion={{
             latitude: LATITUDE,
@@ -45,7 +45,9 @@ export class Map extends Component<Props> {
           }}>
           {resultsPlaces}
         </RNMaps>
-        <Search />
+        <View style={styles.searchContainer}>
+          <Search />
+        </View>
       </View>
     );
   }
@@ -64,3 +66,12 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type Props = ConnectedProps<typeof connector>;
 
 export default connector(Map);
+
+const styles = StyleSheet.create({
+  searchContainer: {
+    position: 'absolute',
+    bottom: 60,
+    padding: 10,
+    width: '100%',
+  },
+});
