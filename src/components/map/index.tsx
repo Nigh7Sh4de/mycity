@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {bindActionCreators, Dispatch} from 'redux';
 import {connect, ConnectedProps} from 'react-redux';
 import {RootState} from 'src/redux';
-import RNMaps, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import RNMaps, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 import Search from 'src/components/search';
 import {
@@ -18,17 +18,32 @@ export class Map extends Component<Props> {
     super(props);
   }
 
+  togglePin = () => {
+    console.log('Add pin');
+  };
+
   render() {
     const {results} = this.props;
+    console.log({results});
     const resultsPlaces = results.map((result) => (
       <Marker
         coordinate={{
           latitude: result.geometry.location.lat,
           longitude: result.geometry.location.lng,
         }}
-        key={result.place_id}
-        title={result.name}
-      />
+        key={result.place_id}>
+        <Callout tooltip={true} onPress={this.togglePin}>
+          <View style={styles.calloutContainer}>
+            <Text style={styles.calloutTitleText}>{result.name}</Text>
+            <View style={styles.calloutPinnedContainer}>
+              <Text>Pinned: </Text>
+              <Text style={styles.calloutPinnedText}>
+                {result.pinned ? 'Yes' : 'No'}
+              </Text>
+            </View>
+          </View>
+        </Callout>
+      </Marker>
     ));
 
     return (
@@ -73,5 +88,30 @@ const styles = StyleSheet.create({
     bottom: 60,
     padding: 10,
     width: '100%',
+  },
+
+  calloutContainer: {
+    padding: 10,
+    backgroundColor: '#ffffff',
+    borderRadius: 8,
+  },
+
+  calloutPinnedContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+
+  calloutPinnedText: {
+    padding: 4,
+    borderRadius: 8,
+    backgroundColor: '#aabbff',
+    display: 'flex',
+  },
+
+  calloutTitleText: {
+    fontWeight: 'bold',
   },
 });
