@@ -1,5 +1,6 @@
 import {GoogleSignin} from '@react-native-community/google-signin';
 import {Dimensions} from 'react-native';
+import {Place} from 'google.maps';
 
 // Auth functions
 export async function configure() {
@@ -29,7 +30,7 @@ export const LATITUDE_DELTA = 0.0522;
 export const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 export const SEARCH_RADIUS = Math.max(LATITUDE_DELTA, LONGITUDE_DELTA) * 111000;
 
-export async function searchPlaces(text: String) {
+export async function searchPlaces(text: String): Promise<Place[]> {
   const {accessToken} = await GoogleSignin.getTokens();
   const response = await fetch(
     `https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyCEUtOBQNpEMlOFH7bbo5sE0xmQxx8V1Fo&location=${LATITUDE},${LONGITUDE}&radius=${SEARCH_RADIUS}&query=${text}`,
