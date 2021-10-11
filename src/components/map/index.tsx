@@ -6,6 +6,7 @@ import {RootState} from 'src/redux';
 import RNMaps, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 import Search from 'src/components/search';
+import {setPin} from 'src/redux/places';
 import {
   LATITUDE,
   LONGITUDE,
@@ -18,21 +19,22 @@ export class Map extends Component<Props> {
     super(props);
   }
 
-  togglePin = () => {
-    console.log('Add pin');
+  setPin = (id: string, pinned: boolean) => {
+    this.props.setPin(id, pinned);
   };
 
   render() {
     const {results} = this.props;
-    console.log({results});
     const resultsPlaces = results.map((result) => (
       <Marker
         coordinate={{
           latitude: result.geometry.location.lat,
           longitude: result.geometry.location.lng,
         }}
-        key={result.place_id}>
-        <Callout tooltip={true} onPress={this.togglePin}>
+        key={result.place_id + result.pinned}>
+        <Callout
+          tooltip={true}
+          onPress={this.setPin.bind(this, result.place_id, !result.pinned)}>
           <View style={styles.calloutContainer}>
             <Text style={styles.calloutTitleText}>{result.name}</Text>
             <View style={styles.calloutPinnedContainer}>
@@ -74,7 +76,7 @@ function mapStateToProps(state: RootState) {
   };
 }
 function mapDispatchToProps(dispatch: Dispatch) {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({setPin}, dispatch);
 }
 const connector = connect(mapStateToProps, mapDispatchToProps);
 
