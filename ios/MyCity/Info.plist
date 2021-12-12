@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>MyCity</string>
+	<string>MyCity xD</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -29,7 +29,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.449150167275-kpdhtgunil536h8ghr1634t8ua4vlvdg</string>
+				<string>com.googleusercontent.apps.449150167275-ipjbptuvifk82q1ubc40tuuttcq04nsf</string>
 			</array>
 		</dict>
 	</array>
@@ -42,15 +42,9 @@
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<false/>
 		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
+		<dict/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>MyCity uses your location to improve visibility of information you may find useful</string>

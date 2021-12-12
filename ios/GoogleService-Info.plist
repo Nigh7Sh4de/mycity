@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>449150167275-kpdhtgunil536h8ghr1634t8ua4vlvdg.apps.googleusercontent.com</string>
+	<string>449150167275-ipjbptuvifk82q1ubc40tuuttcq04nsf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.449150167275-kpdhtgunil536h8ghr1634t8ua4vlvdg</string>
+	<string>com.googleusercontent.apps.449150167275-ipjbptuvifk82q1ubc40tuuttcq04nsf</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>449150167275-mjtf88a1q9j16922h351k6i0qtsg9rve.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,22 +15,22 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mycity</string>
+	<string>com.n7s.mycity</string>
 	<key>PROJECT_ID</key>
 	<string>mycity-n7s</string>
 	<key>STORAGE_BUCKET</key>
 	<string>mycity-n7s.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:449150167275:ios:015a24b043051fa20f76ae</string>
+	<string>1:449150167275:ios:0165c7729a436ede0f76ae</string>
 </dict>
 </plist>
